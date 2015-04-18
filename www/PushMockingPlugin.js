@@ -1,7 +1,7 @@
 var PushMocking = function() {
 };
 
-PushMocking.prototype.showPush = function(successCallback, errorCallback, options) {
+PushMocking.prototype.showPush = function(successCallback, errorCallback, title, message, appName) {
     if (errorCallback == null) { errorCallback = function() {}}
 
     if (typeof errorCallback != "function")  {
@@ -14,7 +14,17 @@ PushMocking.prototype.showPush = function(successCallback, errorCallback, option
         return
     }
 
-    cordova.exec(successCallback, errorCallback, "PushMocking", "showPush", [options]);
+    cordova.exec(
+            successCallback, 
+            errorCallback, 
+            "PushMockingPlugin", 
+            "showPush", 
+            [{
+                "title": title,
+                "messae": message,
+                "appName": appName
+            }]
+    );
 };
 
 //-------------------------------------------------------------------
