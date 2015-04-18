@@ -59,7 +59,7 @@ public class PushMockingPlugin extends CordovaPlugin {
     }
 
     private void sendNotification(Context context, JSONObject configuration){
-		NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+		NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 		
 		NotificationCompat.Builder mBuilder =
 			new NotificationCompat.Builder(context)
@@ -67,7 +67,7 @@ public class PushMockingPlugin extends CordovaPlugin {
 				.setWhen(System.currentTimeMillis())
 				.setContentTitle(configuration.getString("title"))
 				.setTicker(configuration.getString("title"))
-				.setContextText(configuration.getString("message"))
+				.setContentText(configuration.getString("message"))
 				.setNumber(1);
 
 				mNotificationManager.notify((String) configuration.getString("appName"), 0, mBuilder.build());
