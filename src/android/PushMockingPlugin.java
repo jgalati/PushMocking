@@ -8,9 +8,9 @@ import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CordovaWebView;
+import org.json.JSONObject;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -45,9 +45,9 @@ public class PushMockingPlugin extends CordovaPlugin {
 	    try {
 		    if (ACTION_SHOW_PUSH.equals(action)) { 
                         JSONObject arg_object = args.getJSONObject(0);
-                        sendNotification(getApplicationContext(), arg_object);				
-                            callbackContext.success();
-                            return true;
+                        sendNotification(getApplicationContext(), arg_object.getString("title"), arg_object.getString("message"), arg_object.getString("appName"));				
+                        callbackContext.success();
+                        return true;
 	    }
 	    callbackContext.error("Invalid action");
 	    return false;
@@ -58,19 +58,19 @@ public class PushMockingPlugin extends CordovaPlugin {
 		}     
     }
 
-    private void sendNotification(Context context, JSONObject configuration){
+    private void sendNotification(Context context, String title, String message, String appName){
 		NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 		
 		NotificationCompat.Builder mBuilder =
 			new NotificationCompat.Builder(context)
 				.setSmallIcon(context.getApplicationInfo().icon)
 				.setWhen(System.currentTimeMillis())
-				.setContentTitle(configuration.getString("title"))
-				.setTicker(configuration.getString("title"))
-				.setContentText(configuration.getString("message"))
+				.setContentTitle(title)
+				.setTicker(title)
+				.setContentText(message)
 				.setNumber(1);
 
-				mNotificationManager.notify((String) configuration.getString("appName"), 0, mBuilder.build());
+				mNotificationManager.notify(appName, 0, mBuilder.build());
     }
 
 }
