@@ -26,7 +26,7 @@ import java.util.Iterator;
 
 
 public class PushMockingPlugin extends CordovaPlugin {
-    public static final String TAG = "PushMockingPlugin";
+    public static final String TAG = "PushMocking";
 
     public static final String ACTION_SHOW_PUSH = "showPush";
 
