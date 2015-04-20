@@ -4,7 +4,7 @@
     id="com.kunst.plugin.PushMocking"
     version="0.1.0">
 
-    <name>PushMocking</name>
+    <name>PushMockingPlugin</name>
     <author>Kunst</author>
 
     <description>
@@ -13,8 +13,8 @@
 
     <license>MIT</license>
 
-    <js-module src="www/PushMockingPlugin.js" name="PushMocking">
-        <clobbers target="PushMocking" />
+    <js-module src="www/PushMockingPlugin.js" name="PushMockingPlugin">
+        <clobbers target="PushMockingPlugin" />
     </js-module>
 
 
@@ -22,7 +22,7 @@
     <platform name="android">
 
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="PushMocking" >
+            <feature name="PushMockingPlugin" >
                 <param name="android-package" value="com.kunst.plugin.PushMockingPlugin"/>
             </feature>
         </config-file>
