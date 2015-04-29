@@ -22,7 +22,7 @@
     <platform name="android">
 
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="PushMocking" >
+            <feature name="PushMockingPlugin" >
                 <param name="android-package" value="com.kunst.plugin.PushMockingPlugin"/>
             </feature>
         </config-file>
