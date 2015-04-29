@@ -14,4 +14,4 @@ function  sendANotification(title, message, appName) {
 
 ### Icon
 
-_The icon that the notification will show is the same one of the App_
+_The icon that the notification will show is the same one of the App_.
