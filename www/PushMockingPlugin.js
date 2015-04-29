@@ -9,7 +9,7 @@ showPush : function(successCallback, errorCallback, title, message, appName) {
             "showPush", 
             [{
                 "title": title,
-                "messae": message,
+                "message": message,
                 "appName": appName
             }]
         );
